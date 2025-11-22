@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Annuaire maritime Alg?rie</title>
+  <meta name="description" content="Annuaire des entreprises en Alg?rie en lien avec la mer : ports, armateurs, services maritimes, p?che, aquaculture, offshore." />
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="container">
+    <h1>Annuaire maritime en Alg?rie</h1>
+    <p class="subtitle">Entreprises li?es ? la mer : ports, armateurs, services, p?che et offshore</p>
+  </header>
+
+  <section class="container card filters">
+    <div class="filters__row">
+      <label class="field">
+        <span>Recherche</span>
+        <input id="q" type="search" placeholder="Nom, description, ville?" autocomplete="off" />
+      </label>
+      <label class="field">
+        <span>Cat?gorie</span>
+        <select id="category">
+          <option value="">Toutes</option>
+        </select>
+      </label>
+      <label class="field">
+        <span>Wilaya</span>
+        <select id="wilaya">
+          <option value="">Toutes</option>
+        </select>
+      </label>
+      <label class="field">
+        <span>Tri</span>
+        <select id="sort">
+          <option value="name-asc">Nom (A ? Z)</option>
+          <option value="name-desc">Nom (Z ? A)</option>
+          <option value="city-asc">Ville (A ? Z)</option>
+          <option value="category-asc">Cat?gorie (A ? Z)</option>
+        </select>
+      </label>
+    </div>
+    <div class="filters__meta">
+      <span id="count">?</span>
+      <button id="reset" class="btn-secondary" type="button">R?initialiser</button>
+    </div>
+  </section>
+
+  <main class="container grid" id="results" aria-live="polite"></main>
+
+  <template id="card-template">
+    <article class="card company">
+      <div class="company__header">
+        <h3 class="company__name"></h3>
+        <span class="chip company__category"></span>
+      </div>
+      <p class="company__desc"></p>
+      <dl class="company__meta">
+        <div><dt>Ville</dt><dd class="company__city"></dd></div>
+        <div><dt>Wilaya</dt><dd class="company__wilaya"></dd></div>
+        <div><dt>Statut</dt><dd class="company__type"></dd></div>
+      </dl>
+      <div class="company__actions">
+        <a class="btn" target="_blank" rel="noopener noreferrer nofollow" aria-label="Site web" href="#">Site web</a>
+      </div>
+    </article>
+  </template>
+
+  <footer class="container footer">
+    <small>Liste indicative et ?volutive. Derni?re mise ? jour automatique.</small>
+  </footer>
+
+  <script src="./app.js" type="module"></script>
+</body>
+</html>
